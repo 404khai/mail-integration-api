@@ -17,12 +17,10 @@ Built with:
 ## Features
 - `POST /api/integrations/esp` → Save and validate Mailchimp / GetResponse API credentials  
 - `GET /api/integrations/esp/lists` → Fetch all lists (audiences/campaigns) from the connected ESP
-- Note: the esp/lists api is param based since I had no JWT or auth system to work with so for instance use: /api/integrations/esp/lists?userId=user1&provider=mailchimp
-  Query Params:
-
-    userId (string) → your app’s user identifier
-
-    provider (mailchimp | getresponse)
+- Note: the esp/lists api is param based since I had no JWT or auth system to work with so for instance use: `/api/integrations/esp/lists?userId=user1&provider=mailchimp`
+- Query Params:
+  - userId (string) → your app’s user identifier
+  - provider (mailchimp | getresponse)
     
 - Error handling for:
   - Invalid API keys (401)  
@@ -39,7 +37,7 @@ Each list includes:
 }
 
 ```
----
+
 
 ## Cloning the repository
 ```json
@@ -47,14 +45,12 @@ git clone https://github.com/404khai/mail-integration-api.git
 cd mail-integration-api
 
 
----
 ```
 ## Install dependencies
 ```json
 npm install
 
 
----
 ```
 ## Environment variables
 - Create a .env file in the project root:
@@ -63,8 +59,6 @@ PORT=5000
 MONGO_URI=mongodb+srv://<username>:<password>@<cluster>.mongodb.net/espIntegration?retryWrites=true&w=majority
 
 
-
----
 ```
 ## 🚀 Run the server
 ```json
