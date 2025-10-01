@@ -36,30 +36,29 @@ Each list includes:
   "subscriber_count"
 }
 
+
 ```
-
-
 ## Cloning the repository
-```json
+```bash
 git clone https://github.com/404khai/mail-integration-api.git
 cd mail-integration-api
 
 
 ```
 ## Install dependencies
-```json
+```bash
 npm install
 
 
 ```
 ## Environment variables
 - Create a .env file in the project root:
-```json
+```env
 PORT=5000
 MONGO_URI=mongodb+srv://<username>:<password>@<cluster>.mongodb.net/espIntegration?retryWrites=true&w=majority
 
 
 ```
 ## 🚀 Run the server
-```json
+```bash
 npm run dev
