@@ -12,7 +12,7 @@ export const verifyGetResponseKey = async (apiKey: string): Promise<boolean> => 
   }
 };
 
-// Fetch GetResponse campaigns (lists) with created_at
+// Fetch GetResponse campaigns (lists) with created_at and contact count
 export const fetchGetResponseLists = async (apiKey: string) => {
   try {
     const res = await axios.get("https://api.getresponse.com/v3/campaigns", {
@@ -22,7 +22,8 @@ export const fetchGetResponseLists = async (apiKey: string) => {
     return res.data.map((campaign: any) => ({
       id: campaign.campaignId,
       name: campaign.name,
-      created_at: campaign.createdOn, // GetResponse field
+      created_at: campaign.createdOn, 
+      contact_count: campaign.contactsCount ?? 0,
     }));
   } catch (error: any) {
     if (error.response?.status === 401) {

@@ -16,7 +16,7 @@ export const verifyMailchimpKey = async (apiKey: string): Promise<boolean> => {
   }
 };
 
-// Fetch Mailchimp lists with created_at and error handling
+// Fetch Mailchimp lists with created_at, sub count and error handling
 export const fetchMailchimpLists = async (apiKey: string) => {
   try {
     const [key, dc] = apiKey.split("-");
@@ -29,7 +29,8 @@ export const fetchMailchimpLists = async (apiKey: string) => {
     return response.data.lists.map((list: any) => ({
       id: list.id,
       name: list.name,
-      created_at: list.date_created, // Mailchimp field
+      created_at: list.date_created,
+      subscriber_count: list.stats?.member_count ?? 0, // Safe fallback
     }));
   } catch (error: any) {
     if (error.response?.status === 401) {
